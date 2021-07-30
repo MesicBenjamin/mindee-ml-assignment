@@ -80,10 +80,16 @@ Histogram of BAR code after applying 2D filter.
 
 ### Text detection
 
+After detecting QR or BAR (if they exist) it is easy to detect text. This is done by applying
+additional filter. The text is clearly highlighted (image below) and it is straightforward to extract
+every word by finding contours.
+
 ```
 X = 15
 kernel = np.ones((X, X),np.float32)
 img_gray = cv2.filter2D(img_gray,-1,kernel)
+
+contours, _ = cv2.findContours(img_gray, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
 ```
 
 ![Step 4](data/steps/step4.jpg)
