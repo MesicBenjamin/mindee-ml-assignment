@@ -55,8 +55,8 @@ mask = np.where(img_gray>0)
 ![Step 3](data/steps/step3.jpg)
 
 The procedure explained above can be used to select both QR and BAR. In order to classify them,
-smearing filter is applied. Result of smearing is represented with histograms for both cases.
-One can clearly see the difference in distribution of colors and this difference, i.e. variance value of histograms has been used to classify QR and BAR code.
+smearing filter is applied first. Result of smearing is represented with histograms for both cases.
+One can clearly see the difference in distribution of colors and this difference, i.e. color variance has been used to classify QR and BAR code.
 
 ```
 # Difference between QR and BAR
@@ -100,7 +100,7 @@ ground truth bounding boxes and the predicted ones. The reason for that lies in 
 of the word separator, as it can be seen on the images below. 
 
 An example where predicted bounding box contains two words (SVA934c0 and Zm9) with sufficient space but it failed to separate them. Additional tuning can solve this.   
-![Example 2][data/results/LVO4IATd5toqoi.jpg]
+![Example 2](data/results/LVO4IATd5toqoi.jpg)
 
 An example where according to the ground truth labels, two words (BSQU8ev29 and Cj2) are separated. However, there is insufficient space for word separation and it is not possible to separate this case, not even by human intervention.  
-![Example 1][data/results/K3XNE2Cr2rq7s2.jpg]
+![Example 1](data/results/K3XNE2Cr2rq7s2.jpg)
